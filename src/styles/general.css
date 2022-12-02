@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  } 
+}
+
+@layer components {
+  .header-bar {
+    @apply w-screen h-32 bg-yellow-400 flex justify-between items-center;
+  }
+
+  .svg-icon {
+    @apply flex-1 text-5xl ml-10 cursor-pointer hover:text-gray-600;
+  }
+}
+
+.inactive-side-bar {
+  transform: translate3d(-192px, 0, 0);
+}
+
+.active-side-bar {
+  transform: translate3d(0vw, 0, 0);
+}
