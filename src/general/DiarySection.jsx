@@ -2,7 +2,7 @@
 import questionsList from "../data/JournalQuestionDictionary";
 import moment from 'moment';
 
-const DiaryPage = ({ date }) => { 
+const DiarySection = ({ date }) => { 
 
     const day = date.format("DD")
     const month = date.format("MMM")
@@ -26,4 +26,4 @@ const DiaryPage = ({ date }) => {
     )
 }
 
-export default DiaryPage;
+export default DiarySection;
