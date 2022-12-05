@@ -1,6 +1,4 @@
-
 import questionsList from "../data/JournalQuestionDictionary";
-import moment from 'moment';
 
 const DiarySection = ({ date }) => { 
 
