@@ -5,10 +5,6 @@ const DiaryPage = () => {
     const dayAndMonth = date.slice(4,10);
     const year = date.slice(11);
 
-
-    const dateArray = getDates(new Date(), new Date("01/01/2022")) 
-    console.log(dateArray);   
-
     return (
         <div className='flex flex-col flex-grow font-mono'> 
             <div className='flex items-end py-6'>
