@@ -4,7 +4,6 @@ import moment from 'moment';
 
 const DiaryPage = ({ date }) => { 
 
-    const oneDay = 24 * 60 * 60 * 1000;
     const day = date.format("DD")
     const month = date.format("MMM")
     const year = date.format("YYYY")
