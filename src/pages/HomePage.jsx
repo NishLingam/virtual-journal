@@ -27,7 +27,7 @@ const HomePage = () => {
         <div className='flex flex-col h-screen'>
             <HeaderBar sideBarHandler={sideBarHandler}/>
             <div className='flex flex-1'>
-                <SideBar sideBarActive={sideBarActive} todayDate={todayDate}/>
+                <SideBar sideBarActive={sideBarActive}/>
                 <DiarySection date={activeDate}/>
                 <button onClick={nextDateHandler}> Next </button>
                 <button onClick={prevDateHandler}> Previous </button>
