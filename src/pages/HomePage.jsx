@@ -1,27 +1,29 @@
 import {useState, React} from 'react';
-import moment from 'moment';
-
+import { 
+    endOfDay,
+    addDays,
+    subDays
+ } from 'date-fns';
 import HeaderBar from '../general/HeaderBar';
 import SideBar from '../general/SideBar';
 import DiarySection from '../general/DiarySection';
 
 const HomePage = () => {
-    const todayDate = moment();
+    const todayDate = endOfDay(new Date());
     const [sideBarActive, setSideBarActive] = useState(false);
     const [activeDate, setActiveDate] = useState(todayDate);
 
     const nextDateHandler = () => {
-        setActiveDate(moment(activeDate).add(1, "days"));
+        setActiveDate(addDays(activeDate, 1));
     }
 
     const prevDateHandler = () => {
-        setActiveDate(moment(activeDate).subtract(1, "days"));
+        setActiveDate(subDays(activeDate, 1));
     }
 
     const sideBarHandler = () => {
        setSideBarActive(!sideBarActive);
     }
-    console.log(activeDate)
 
     return (
         <div className='flex flex-col h-screen'>
