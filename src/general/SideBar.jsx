@@ -1,11 +1,11 @@
 import React from 'react';
-import moment from 'moment';
+import { format, endOfDay } from 'date-fns';
 
 import SideBarButton from './SideBarButton';
 
 const SideBar = ({ sideBarActive }) => {
 
-    const todayDate = moment().format("ll");
+    const todayDate = format(endOfDay(new Date()), "dd-MM-yyyy");
     const buttonTexts = [todayDate, "Timeline", "Download", "Upgrade", "Settings", "Contact Us"]
 
     return (
