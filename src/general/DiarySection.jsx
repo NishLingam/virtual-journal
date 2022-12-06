@@ -1,6 +1,7 @@
 import { 
     format,
-    getDayOfYear
+    getDayOfYear,
+    endOfDay,
  } from 'date-fns';
 import DatePicker from "react-datepicker";
 
@@ -8,8 +9,8 @@ import questionsList from "../data/JournalQuestionDictionary";
 import CalendarImg from "../images/calendarImg.png";
 import { useState } from 'react';
 
-const DiarySection = ({ date }) => {
-    const [diaryDate, setDiaryDate] = useState(date);
+const DiarySection = () => {
+    const [diaryDate, setDiaryDate] = useState(endOfDay(new Date()));
     const day = format(diaryDate, "dd")
     const month = format(diaryDate, "MMM")
     const year = format(diaryDate, "yyyy")
