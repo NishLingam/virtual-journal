@@ -1,26 +1,40 @@
-import React from 'react';
 import { 
     format,
     getDayOfYear
  } from 'date-fns';
+import DatePicker from "react-datepicker";
+
 import questionsList from "../data/JournalQuestionDictionary";
+import CalendarImg from "../images/calendarImg.png";
+import { useState } from 'react';
 
-const DiarySection = ({ date }) => { 
-    const dayAndMonth = format(date, "dd MMM")
-    const year = format(date, "yyyy")
+const DiarySection = ({ date }) => {
+    const [diaryDate, setDiaryDate] = useState(date);
+    const day = format(diaryDate, "dd")
+    const month = format(diaryDate, "MMM")
+    const year = format(diaryDate, "yyyy")
 
-    const dateIndex = getDayOfYear(date) - 335;
+    const dateIndex = getDayOfYear(diaryDate) - 335;
+
+    const updateDate = (date) => {
+        setDiaryDate(date)
+    }
 
 
     return (
-        <div className='flex flex-col flex-grow font-mono'> 
-            <div className='flex items-end py-6'>
-                <div className='text-5xl'> {dayAndMonth}</div> 
-                <div className='text-xl ml-6'> {year} </div>
+        <div className='flex flex-col flex-grow'> 
+            <div className='flex py-6 mr-8 items-end justify-between'>
+                <div className='flex items-end py-6'>
+                    <div className='text-5xl whitespace-nowrap mr-5'> {day} {month}</div> 
+                    <div className='text-xl'> {year} </div>
+                </div>
+                <div>
+                    <DatePicker selected={diaryDate} onChange={(date) =>updateDate(date)} customInput={<img src={CalendarImg} className="h-12"></img>} />
+                </div>
             </div>
             
             <div className='py-10 italic text-3xl'> {questionsList[dateIndex]} </div>
-            <form className='mr-6 mb-6 flex flex-grow bg-yellow-100 italic cursor-pointer rounded-3xl'>
+            <form className='mr-8 mb-6 flex flex-grow bg-yellow-100 italic cursor-pointer rounded-3xl'>
                 <textarea className="p-8 italic h-full w-full flex justify-center items-start" type="text" placeholder='Click to start typing...' />
             </form>
         </div>
