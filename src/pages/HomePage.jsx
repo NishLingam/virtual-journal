@@ -31,8 +31,6 @@ const HomePage = () => {
             <div className='flex flex-1'>
                 <SideBar sideBarActive={sideBarActive}/>
                 <DiarySection date={activeDate}/>
-                <button onClick={nextDateHandler}> Next </button>
-                <button onClick={prevDateHandler}> Previous </button>
             </div>
         </div>
     )
