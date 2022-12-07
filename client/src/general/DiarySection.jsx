@@ -21,6 +21,16 @@ const DiarySection = () => {
         setDiaryDate(date)
     }
 
+    const [data, setData] = useState("test");
+
+    const testFunc = () => {
+        fetch("/api")
+        .then((res) => res.json())
+        .then((testdata) => setData(testdata.message))
+    }
+
+    console.log(data);
+
 
     return (
         <div className='flex flex-col flex-grow'> 
@@ -30,8 +40,9 @@ const DiarySection = () => {
                     <div className='text-xl'> {year} </div>
                 </div>
                 <div>
-                    <DatePicker selected={diaryDate} onChange={(date) =>updateDate(date)} customInput={<img src={CalendarImg} className="h-12"></img>} />
+                    <DatePicker selected={diaryDate} onChange={(date) =>updateDate(date)} customInput={<img src={CalendarImg} className="h-12" alt="Calendar"></img>} />
                 </div>
+                <button onClick={testFunc}> Test </button>
             </div>
             
             <div className='py-10 italic text-3xl'> {questionsList[dateIndex]} </div>
